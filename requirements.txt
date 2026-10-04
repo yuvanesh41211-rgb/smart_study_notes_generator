@@ -1,0 +1,4 @@
+# transformers 5.x removed the "summarization" pipeline, so stay on 4.x
+transformers>=4.40,<5
+torch
+sentencepiece

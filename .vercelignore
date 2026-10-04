@@ -1,0 +1,10 @@
+# Local environment
+venv/
+__pycache__/
+*.pyc
+
+# The CLI/Gradio versions need torch + transformers, which are far too large
+# for a Vercel function. The Vercel API (api/summarize.py) uses only the
+# standard library, so keep these out of the deployment.
+requirements.txt
+web_app.py

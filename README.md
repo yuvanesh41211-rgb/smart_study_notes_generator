@@ -1,3 +1,15 @@
+---
+title: Smart Study Notes Generator
+emoji: 📝
+colorFrom: blue
+colorTo: indigo
+sdk: gradio
+sdk_version: 6.17.3
+python_version: "3.12"
+app_file: web_app.py
+pinned: false
+---
+
 # Smart Study Notes Generator
 
 ## Aim
@@ -14,6 +26,7 @@ Students often need to revise long paragraphs from textbooks and notes. The aim 
 - Handles long input by splitting it into chunks that fit the model's limit
 - Handles errors with clear messages: empty input, very short input, non-text input, model loading failures and summarization errors
 - Runs fully offline after the first model download. No API key and no paid services.
+- Optional web version (`web_app.py`, built with Gradio) that uses the same logic and can be hosted for free on Hugging Face Spaces
 
 ## Technologies Used
 
@@ -30,7 +43,8 @@ Students often need to revise long paragraphs from textbooks and notes. The aim 
 
 ```
 smart_study_notes_generator/
-├── app.py               # Main program
+├── app.py               # Main program (command-line version)
+├── web_app.py           # Optional web version (Gradio) for Hugging Face Spaces
 ├── requirements.txt     # Python dependencies
 ├── README.md            # Project documentation
 └── sample_inputs.txt    # Three test paragraphs (AI, Cloud, Cybersecurity)
@@ -63,6 +77,15 @@ python app.py
 ```
 
 Paste a paragraph, then press **Enter on an empty line** to generate the notes. After each result, the program asks whether you want to summarize another paragraph.
+
+### Web version (optional)
+
+```
+pip install gradio "huggingface-hub<1.0"
+python web_app.py
+```
+
+Then open http://127.0.0.1:7860 in a browser. The same app is deployed on Hugging Face Spaces. The settings block at the top of this README tells Spaces to run `web_app.py`.
 
 ## Working
 
